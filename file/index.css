@@ -1,0 +1,633 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+:root
+{
+    --HoverColor: #9EF01A;
+    --BodyColor : #222;
+    --Colorfont : #999;
+    --Time : all 0.3s ease-in-out;
+}
+.controle
+{
+    width: 35px;
+    height: 200px;
+    background-color: #000;
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px 0 0 0 ;
+    top: 200px;
+}
+.controle::after
+{
+    content: "";
+    position: absolute;
+    border-top: 10px solid #ffffff00;
+    border-bottom: 10px solid #ffffff00;
+    border-left: 10px solid #ffffff00;
+    border-right: 10px solid #fff;
+    z-index: 200;
+    right: -10px;
+}
+
+
+.controle li{
+    width: 20px;
+    height: 20px;
+    background-color: var(--clr);
+    position: relative;
+    z-index: 110;
+    list-style-type: none;
+    cursor: pointer;
+    border-radius: 40px;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--BodyColor);
+    overflow-x: hidden;
+}
+.leves
+{
+    width: 105%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: -200px;
+    pointer-events: none;
+}
+.leves img
+{
+    width: 30px;
+    height: 30px;
+    animation: leves ease-in infinite;
+    animation-duration: calc(8s*var(--i));
+    animation-delay: calc(5s * var(--i));
+}
+ @keyframes leves
+{
+    0%
+    {
+       transform: translateY(-20px)rotateX(0)rotateZ(90deg);
+    }
+
+    100%
+    {
+        transform: translateY(105vh)rotateX(360deg)rotateZ(360deg);
+    }
+} 
+
+header{
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    direction: rtl;
+    box-shadow: 1px 1px 5px #00000094;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    background-color: #000000a5;
+}
+header .logo 
+{
+    width: 150px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 20px;
+    position: relative;
+}
+header .logo img
+{
+    width: 150px;
+    height: 65px;
+    transform: scale(1.55,4.5);
+}
+header input[type="checkbox"]
+{
+    position: absolute;
+    left: 30px;
+}
+header nav
+{
+    max-width: 550px;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+header nav  a
+{
+    width: 110px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--Colorfont);
+    transition: var(--Time);
+}
+header input[type="checkbox"]
+{
+    appearance: none;
+    width: 30px;
+    height:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: none;
+}
+header input[type="checkbox"]::after
+{
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-image: url("menu.png");
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    z-index: 2;
+    transition:var(--Time);
+}
+header input[type="checkbox"]::before
+{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url("close.png");
+    background-size: 23px 23px;
+    background-repeat: no-repeat;
+    z-index: 1;
+    display: none;
+    transition: var(--Time);
+}
+header nav a:hover
+{
+    color: #9ef01a;
+}
+article
+{
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+article .slide,
+article form
+{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+article  .slide h1,
+article  .slide h3{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+article  .slide a
+{
+    width: 120px;
+    height: 35px;
+    background-color: #9EF01A;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Colorfont);
+    border: 2px solid #7ec40d;
+    font-weight: 500;
+}
+article form
+{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color: #ffffff46;
+    border-radius:10px;
+    position: relative;
+    padding: 0 10px 0 10px;
+    margin: 10px 0 0 0 ;
+    flex-wrap: nowrap;
+}
+
+article form .search 
+{
+    width: 80%;
+    height: 60px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border-radius:10px;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
+
+article form .search input[type="search"]
+{
+    width: 100%;
+    height: 45px;
+    font-size: 17px;
+    padding: 10px 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    color: #7ec40d;
+    font-weight: 500;
+    background-color: #22222200;
+}
+article form .search .focus
+{
+    position: absolute;
+    bottom: 10px;
+    width: 0%;
+    height: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7ec40d;
+    transition: var(--Time);
+}
+
+article form .search input[type="search"]:focus+.focus,
+article form .search input[type="search"]:valid+.focus
+{
+    width: 100%;
+}
+article form input[type="submit"]
+{
+    width: 100px;
+    height: 40px;
+    background-color: #9EF01A;
+    border-radius: 10px;
+    font-weight: 500;
+    border: #00000000;
+    cursor: pointer;
+}
+#start .link
+{
+    width: 360px;
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid #999;
+    box-shadow: 0 0 5px #000;
+    overflow: hidden;
+    margin: 25px 25px;
+    background-color: #000000a3;
+    z-index: 1;
+}
+
+#start .link a{
+    width: 100%;
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#start .link a::after
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000a1;
+}
+#start .link a img
+{
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+#start .link a p{
+    position: absolute;
+    color: #FFF;
+    background-color: #7ec40d;
+    min-width: 120px;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 0 10px;
+}
+#start .link a:hover img{
+    animation: hover 0.3s 1 linear;
+}
+@keyframes hover
+{
+    0%,100%
+    {
+        transform: scale(1,1);
+        filter: blur(0);
+    }
+
+    50%
+    {
+        transform: scale(1.12,1.12);
+        filter: blur(3px);
+    }
+}
+footer{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+::-webkit-scrollbar
+{
+    background-color: #595858;
+}
+::-webkit-scrollbar-button
+{
+    background-color: #7ec40d;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color: #7ec40d;
+    border-radius: 6px;
+}
+
+/* *****************************************************index1******************************************************* */
+.folder
+{
+    height: 80px;
+}
+.article
+{
+    width: 100%;
+    height: auto;
+    display: block;
+    direction: rtl;
+}
+.article section
+{
+    width: 100%;
+    height: 221px ;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+.article section div
+{
+    width: 91%;
+    height:auto;
+    position: relative;
+    padding: 0 20px 20px 20px;
+    color: #FFF;
+    border: 0.02em solid #595858;
+}
+.article section div h1{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #7ec40d;
+}
+.article section div h1:before 
+{
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 3px;
+    background-color: #7ec40d;
+    bottom: 8px;
+}
+.article section h2
+{
+    width: 93.5%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    color: #FFF;
+    background-color: #ffffff11;
+    border: 0.02em solid #595858;
+}
+.article section a
+{
+    width: 350px;
+    height: 250px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+}
+.article section a img
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.article section a:hover img{
+    animation: hover 0.3s 1 linear;
+}
+/* **************************************************index_html*************************************************** */
+
+.article section .div
+{
+    width: 94%;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+/* *************************************************intro********************************************************* */
+.article section .intro
+{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: #ffffff11;
+    margin-top: -100px;
+    z-index: 5;
+}
+
+
+
+.article section .intro p
+{
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+}
+.article section .intro input[type = "checkbox"]
+{
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: #00000045;
+    border: 0.02em solid #595858;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.article section .intro input[type = "checkbox"]:before
+{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("plus.png");
+    background-repeat: no-repeat;
+    background-position: 4px 4px;
+    opacity: 1;
+}
+.article section .intro input[type = "checkbox"]:after
+{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("minus-sign.png");
+    background-repeat: no-repeat;
+    background-position: 4px 4px;
+}
+.article section .intro input[type = "checkbox"]:checked:before
+{
+
+    opacity: 0;
+}
+.article section .intro .parts
+{
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: var(--Time);
+}
+.article section .intro .parts a
+{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    background-color: #59585855;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: -20px;
+    border-bottom: 0.02em solid #000;
+    color: #000;
+    transition: var(--Time);
+}
+.article section .intro .parts a:hover
+{
+    color:#7ec40d
+}
+.article section .intro input[type = "checkbox"]:checked+.parts
+{
+    opacity: 1;
+    height: 100px;
+}
+.article section .container
+{
+    width: 93.5%;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    padding: 10px 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.article section .container iframe
+{
+    margin: 20px 20px;
+}
+/* *************************************************RESPONSIVE**************************************************** */
+@media (max-width:850px){
+
+    header nav
+    {
+        max-width: 220px;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 75px;
+        height: 0;
+        overflow: hidden;
+        right: 2px;
+        background-color: #0000009f;
+        border-radius: 5px;
+    }
+    header nav a
+    {
+        color: #7ec40d;
+        backdrop-filter: blur(3px);
+        width: 100%;
+    }
+    header input[type="checkbox"]
+    {
+        display: block;
+    }
+    header input[type="checkbox"]:checked~nav{
+        transition: var(--Time);
+        height: 250px;
+        border: 0.02em solid #ffffff3b;
+    }
+    header input[type="checkbox"]:checked::after
+    {
+        display: none;
+    }
+    header input[type="checkbox"]:checked::before
+    {
+        display: block;
+    }
+    #start .link
+    {
+        width: 450px;
+    }
+}
